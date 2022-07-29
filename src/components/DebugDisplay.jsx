@@ -5,7 +5,7 @@ const DebugDisplay = ({ register }) => {
   let [shown, setShown] = useState(false);
 
   if(!shown) {
-    return <button onClick={() => setShown(true)} class="text-yellow">Show Debug</button>
+    return <button onClick={() => setShown(true)} className="text-yellow">Show Debug</button>
   }
 
   return (
@@ -16,7 +16,7 @@ const DebugDisplay = ({ register }) => {
         <li>Remember Number: {register.rememberNumber}</li>
         <li>Operation: {register.operation}</li>
       </ul>
-      <button onClick={() => setShown(false)} class="text-yellow">Hide Debug</button>
+      <button onClick={() => setShown(false)} className="text-yellow">Hide Debug</button>
     </>
   );
 }
