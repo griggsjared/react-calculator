@@ -1,2 +1,2 @@
-# Simple calcualtor made in react and tailwindcss
+# Simple calculator made in react and tailwindcss
 
