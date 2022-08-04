@@ -4,20 +4,7 @@ import ButtonsGrid from 'components/ButtonsGrid';
 import Button from 'components/Button';
 import Wrapper from 'components/Wrapper';
 import DebugDisplay from 'components/DebugDisplay';
-
-
-const math = (a, b, op) => {
-  switch (op) {
-    case 'add':
-      return a + b;
-    case 'subtract':
-      return a - b;
-    case 'multiply':
-      return a * b;
-    default:
-      return a / b;
-  }
-}
+import math from 'utils/math';
 
 const App = () => {
   const [screenDisplay, setScreenDisplay] = useState(0);
@@ -175,8 +162,8 @@ const App = () => {
             )
           })}
         </ButtonsGrid>
-        <DebugDisplay register={register} />
       </Wrapper>
+      <DebugDisplay register={register} />
     </div>
   );
 }
