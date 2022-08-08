@@ -4,6 +4,7 @@ import ButtonsGrid from 'components/ButtonsGrid';
 import Button from 'components/Button';
 import Wrapper from 'components/Wrapper';
 import DebugDisplay from 'components/DebugDisplay';
+import Calculator from 'components/Calculator';
 import math from 'utils/math';
 
 const App = () => {
@@ -43,25 +44,25 @@ const App = () => {
         });
         setError('');
       }},
-      { label: '÷', value: 'divide', className: '!bg-yellow', callback: () => handleOperationClick('divide')},
+      { label: '÷', value: 'divide', className: '!bg-primary', callback: () => handleOperationClick('divide')},
     ],
     [
       { label: '7', value: '7' },
       { label: '8', value: '8' },
       { label: '9', value: '9' },
-      { label: '×', value: 'multiply', className: '!bg-yellow', callback: () => handleOperationClick('multiply')},
+      { label: '×', value: 'multiply', className: '!bg-primary', callback: () => handleOperationClick('multiply')},
     ],
     [
       { label: '4', value: '4' },
       { label: '5', value: '5' },
       { label: '6', value: '6' },
-      { label: '-', value: 'subtract', className: '!bg-yellow', callback: () => handleOperationClick('subtract')},
+      { label: '-', value: 'subtract', className: '!bg-primary', callback: () => handleOperationClick('subtract')},
     ],
     [
       { label: '1', value: '1' },
       { label: '2', value: '2' },
       { label: '3', value: '3' },
-      { label: '+', value: 'add', className: '!bg-yellow', callback: () => handleOperationClick('add')},
+      { label: '+', value: 'add', className: '!bg-primary', callback: () => handleOperationClick('add')},
     ],
     [
       { label: '0', value: '0', className: 'col-span-2' },
@@ -72,7 +73,7 @@ const App = () => {
         });
         setError('');
       }},
-      { label: '=', value: 'equals', className: '!bg-yellow', callback: () => handleEvaluate()}
+      { label: '=', value: 'equals', className: '!bg-primary', callback: () => handleEvaluate()}
     ]
   ]
 
@@ -149,21 +150,23 @@ const App = () => {
   return (
     <div className="flex flex-col items-center justify-center w-full h-screen p-8 bg-gray-100">
       <Wrapper>
-        <ScreenDisplay output={screenDisplay} />
-        <ButtonsGrid>
-          {buttons.flat().map((button, i) => {
-            return (
-              <Button
-                className={button.className}
-                label={button.label}
-                key={button.value}
-                onClick={() => handleButtonClick(button)}
-              />
-            )
-          })}
-        </ButtonsGrid>
+        <Calculator>
+          <ScreenDisplay output={screenDisplay} />
+          <ButtonsGrid>
+            {buttons.flat().map((button, i) => {
+              return (
+                <Button
+                  className={button.className}
+                  label={button.label}
+                  key={button.value}
+                  onClick={() => handleButtonClick(button)}
+                />
+              )
+            })}
+          </ButtonsGrid>
+        </Calculator>
+        <DebugDisplay register={register} />
       </Wrapper>
-      <DebugDisplay register={register} />
     </div>
   );
 }

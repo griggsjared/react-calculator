@@ -11,7 +11,7 @@ module.exports = {
       black: colors.black,
       white: colors.white,
       gray: colors.neutral,
-      yellow: colors.orange[500]
+      primary: colors.orange[500]
     },
     fontFamily: {
       sans: ['Source Code Pro', 'sans-serif']
